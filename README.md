@@ -26,12 +26,17 @@ Updated December 15, 2025. Please note that the previous code contained bugs. Us
 
 # Contents
 1.Algorithms
+
 (1) CUR.py: The algorithm CUR-Trans proposed in this paper and its variant SVD-Trans.
+
 (2) T2.py:  The algorithm $T^2$-Approx proposed in this paper.
+
 (3) Competitors.py: The comparison algorithm in this paper.
 
 2. Figures
+
 (1) time picture: Orkut_TimePicture.py,Friendster_TimePicture.py,UKDomain_TimePicture.py
+
 (2) error boxplot: Error_Boxplot.py
 
 3.Poster.pdf
