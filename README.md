@@ -1,6 +1,8 @@
 # Intruduction
 This is an implementation of the CUR_Trans and $T^2$-Approx algorithms proposed in the paper “Efficient and Accurate PageRank Approximation on Large Graphs” published in the 2025 Proceedings of the ACM on Management of Data, and includes the competitors which are sampling-based PageRank estimations.
 
+Updated December 15, 2025. Please note that the previous code contained errors. Users are advised to download this updated version.
+
 ```bash
 @article{DBLP:journals/pacmmod/WuWQCL24,
   author       = {Siyue Wu and
@@ -23,22 +25,22 @@ This is an implementation of the CUR_Trans and $T^2$-Approx algorithms proposed 
 
 
 # Contents
-## Algorithms
-1.CUR.py: The algorithm CUR-Trans proposed in this paper and its variant SVD-Trans.
+1.Algorithms
+1) CUR.py: The algorithm CUR-Trans proposed in this paper and its variant SVD-Trans.
 
-2.T2.py:  The algorithm $T^2$-Approx proposed in this paper.
+2) T2.py:  The algorithm $T^2$-Approx proposed in this paper.
 
-3.Competitors.py: The comparison algorithm in this paper.
+3) Competitors.py: The comparison algorithm in this paper.
 
-## Figures
-1.time picture: Orkut_TimePicture.py,Friendster_TimePicture.py,UKDomain_TimePicture.py
+2. Figures
+1) time picture: Orkut_TimePicture.py,Friendster_TimePicture.py,UKDomain_TimePicture.py
 
-2.error boxplot: Error_Boxplot.py
+2) error boxplot: Error_Boxplot.py
 
-## Poster.pdf
+3.Poster.pdf
 Display poster of main paper content.
 
-## Supplementary Material.pdf
+4.Supplementary Material.pdf
 Proofs and experiments not included in the paper due to limited page.
 
 
