@@ -25,6 +25,7 @@ Updated December 15, 2025. Please note that the previous code contained bugs. Us
 
 
 # Contents
+
 1.Algorithms
 
 (1) CUR.py: The algorithm CUR-Trans proposed in this paper and its variant SVD-Trans.
@@ -33,7 +34,7 @@ Updated December 15, 2025. Please note that the previous code contained bugs. Us
 
 (3) Competitors.py: The comparison algorithm in this paper.
 
-2. Figures
+2.Figures
 
 (1) time picture: Orkut_TimePicture.py,Friendster_TimePicture.py,UKDomain_TimePicture.py
 
