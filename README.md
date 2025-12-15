@@ -68,17 +68,31 @@ All experiments are running on a machine with 4 Intel Xeon E7-4830 CPUs (56 core
 ## Dataset
 We conduct evaluations on three real large graph datasets, Friendster and Orkut and UKDomain. These dataset can be download at:
 
-Friendster: http://konect.cc/networks/friendster/
+Friendster
+``` bash
+http://konect.cc/networks/friendster/
+```
 
-Orkut: http://konect.cc/networks/orkut-groupmemberships/
-
-UKDomain: http://konect.cc/networks/dimacs10-uk-2007-05/
-
-
-
+Orkut
+``` bash
+http://konect.cc/networks/orkut-groupmemberships/
+```
 
 
+UKDomain
+``` bash
+http://konect.cc/networks/dimacs10-uk-2007-05/
+```
 
+If the original dataset links is broken, you can use the dataset uploaded via the link we created:
+``` bash
+https://zenodo.org/records/17410950
+```
+
+Backup link:
+``` bash
+https://zenodo.org/records/17276623
+```
 
 
 
@@ -189,9 +203,12 @@ python CUR.py SVD_Trans /your_graph_path /your_output_path 0.1 1000
 
 # Use Networkit to calculate the PageRank of the original graph as the ground truth of the experiment.
 python Competitors.py GroundTruth /your_graph_path /your_output_path
+```
+
+
 
 # --------------------competitors in the paper
-
+``` bash
 # DSPI：
 # args[5]: alpha,
 # args[6]: theta, alpha and theta together determine the sampling probability of elements.
@@ -207,9 +224,10 @@ python Competitors.py ApproxRank /your_graph_path /your_output_path 0.1 1000
 # args[6]:edges_ration, the sampling ratio of edges.
 # args[7]:T, purning threshold.
 python Competitors.py LPRAP /your_graph_path /your_output_path 100 0.1 0.1
+```
 
 # ---------------------- other competitors
-
+``` bash
 # LocalPR: LPRAP is an optimized version of LocalPR, so the article only compares LPRAP and not LocalPR. 
 # args[5]: sampling_num, the number of vertices in the subgraph.
 # args[6]: edges ration, the sampling ratio of edges.
@@ -227,32 +245,37 @@ python Competitors.py PER_PR /your_graph_path /your_output_path 0.1
 
 ## Detailed Steps for Using the Code
 
-#Step 0: Download the datasets.
+### Step 0: Download the datasets.
 
 
-#Step 1: Use Networkit to calculate the PageRank of the original graph as the ground truth of the experiment.
+### Step 1: Use Networkit to calculate the PageRank of the original graph as the ground truth of the experiment.
+``` bash
 # args[1]: source code file name
 # args[2]: algorithm name
 # args[3]: graph path
 # args[4]: output path
 # Orkut/Friendster/UKdomain Groundtruth 
 python Competitors.py GroundTruth /your_graph_path /your_output_path
+```
 
-
-#Step 2: Run the following command to generate the PageRank result files of five algorithms with different sampling ratios.
-#You can execute the following example command in this step to conveniently preserve the output log.
+### Step 2: Run the following command to generate the PageRank result files of five algorithms with different sampling ratios. You can execute the following example command in this step to conveniently preserve the output log.
+``` bash
 nohup python CUR.py CUR_Trans /your_graph_path /your_output_path 0.00018 3072441 0.0065 > your_output_path.log
+```
 
-#Competitors
-#ApproxRank
+#### Competitors
+##### ApproxRank
+``` bash
 # args[1]: source code file name
 # args[2]: algorithm name
 # args[3]: graph path
 # args[4]: output path
 # args[5]: sampling_ratio
 # args[6]: node_num
+```
 
-#Orkut ApproxRank
+> Orkut ApproxRank
+``` bash
 #sampled edges (%)  0.1
 python Competitors.py ApproxRank /your_graph_path /your_output_path 0.02 3072441
 #sampled edges (%)  0.3
@@ -263,8 +286,12 @@ python Competitors.py ApproxRank /your_graph_path /your_output_path 0.06 3072441
 python Competitors.py ApproxRank /your_graph_path /your_output_path 0.075 3072441
 #sampled edges (%)  1.0
 python Competitors.py ApproxRank /your_graph_path /your_output_path 0.09 3072441
+```
 
-#Friendster ApproxRank
+
+
+> Friendster ApproxRank
+``` bash
 #sampled edges (%)  0.1
 python Competitors.py ApproxRank /your_graph_path /your_output_path 0.02 65608366
 #sampled edges (%)  0.3
@@ -275,8 +302,10 @@ python Competitors.py ApproxRank /your_graph_path /your_output_path 0.055 656083
 python Competitors.py ApproxRank /your_graph_path /your_output_path 0.07 65608366
 #sampled edges (%)  1.0
 python Competitors.py ApproxRank /your_graph_path /your_output_path 0.09 65608366
+```
 
-#UKDomain ApproxRank
+> UKDomain ApproxRank
+``` bash
 #sampled edges (%)  0.1
 python Competitors.py ApproxRank /your_graph_path /your_output_path 0.02 105153952
 #sampled edges (%)  0.3
@@ -287,8 +316,10 @@ python Competitors.py ApproxRank /your_graph_path /your_output_path 0.06 1051539
 python Competitors.py ApproxRank /your_graph_path /your_output_path 0.07 105153952
 #sampled edges (%)  1.0
 python Competitors.py ApproxRank /your_graph_path /your_output_path 0.09 105153952
+```
 
-#LPRAP
+##### LPRAP
+``` bash
 # args[1]: source code file name
 # args[2]: algorithm name
 # args[3]: graph path
@@ -307,8 +338,10 @@ python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.005 1e-8
 python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.007 1e-8
 #sampled edges (%)  1.0
 python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.01 1e-8
+```
 
-#Friendster LPRAP
+> Friendster LPRAP
+``` bash
 #sampled edges (%)  0.1
 python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.001 1e-9
 #sampled edges (%)  0.3
@@ -319,8 +352,11 @@ python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.005 1e-9
 python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.007 1e-9
 #sampled edges (%)  1.0
 python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.01 1e-9
+```
+
 
 #UKDomain LPRAP
+``` bash
 #sampled edges (%)  0.1
 python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.001 1e-10
 #sampled edges (%)  0.3
@@ -331,16 +367,21 @@ python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.005 1e-10
 python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.007 1e-10
 #sampled edges (%)  1.0
 python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.01 1e-10
+```
+
 
 # DSPI：
+``` bash
 # args[1]: source code file name
 # args[2]: algorithm name
 # args[3]: graph path
 # args[4]: output path
 # args[5]: alpha,
 # args[6]: theta, alpha and theta together determine the sampling probability of elements.
+```
 
 # Orkut DSPI 
+``` bash
 #sampled edges (%)  0.1
 python Competitors.py DSPI /your_graph_path /your_output_path 130000 0.999
 #sampled edges (%)  0.3
@@ -351,8 +392,10 @@ python Competitors.py DSPI /your_graph_path /your_output_path 8000 0.999
 python Competitors.py DSPI /your_graph_path /your_output_path 4000 0.999
 #sampled edges (%)  1.0
 python Competitors.py DSPI /your_graph_path /your_output_path 1500 0.999
+```
 
 # Friendster DSPI 
+``` bash
 #sampled edges (%)  0.1
 python Competitors.py DSPI /your_graph_path /your_output_path 35000 0.999
 #sampled edges (%)  0.3
@@ -363,8 +406,11 @@ python Competitors.py DSPI /your_graph_path /your_output_path 2500 0.999
 python Competitors.py DSPI /your_graph_path /your_output_path 1000 0.999
 #sampled edges (%)  1.0
 python Competitors.py DSPI /your_graph_path /your_output_path 500 0.999
+```
+
 
 # UKDomain DSPI 
+``` bash
 #sampled edges (%)  0.1
 python Competitors.py DSPI /your_graph_path /your_output_path 35000 0.999
 #sampled edges (%)  0.3
@@ -375,6 +421,9 @@ python Competitors.py DSPI /your_graph_path /your_output_path 4000 0.999
 python Competitors.py DSPI /your_graph_path /your_output_path 1500 0.999
 #sampled edges (%)  1.0
 python Competitors.py DSPI /your_graph_path /your_output_path 1000 0.999
+```
+
+
 
 #The data loading phase of this code is indeed quite time-consuming. Therefore, we utilize the tqdm library to display a progress bar. 
 #You can directly run the CUR.py file to conveniently monitor the program's execution progress.
