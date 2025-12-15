@@ -471,7 +471,7 @@ python Competitors.py LPRAP /your_graph_path /your_output_path 1000 0.01 1e-10
 ```
 
 
-#### DSPI：
+#### DSPI
 ``` bash
 # args[1]: source code file name
 # args[2]: algorithm name
